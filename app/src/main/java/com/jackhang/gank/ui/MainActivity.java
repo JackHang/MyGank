@@ -52,10 +52,10 @@ public class MainActivity extends BaseActivity
 		// 去掉间隔
 		mTabHost.getTabWidget().setDividerDrawable(android.R.color.transparent);
 
-		TabMenus[] tabMenuses = TabMenus.values();
+		TabMenus[] tabManures = TabMenus.values();
 
-		for (int i = 0; i < tabMenuses.length; i++) {
-			TabMenus tabMenuse = tabMenuses[i];
+		for (int i = 0; i < tabManures.length; i++) {
+			TabMenus tabMenuse = tabManures[i];
 
 			TabHost.TabSpec tabSpec = mTabHost.newTabSpec(tabMenuse.getTag());
 

@@ -49,12 +49,12 @@ public class ApiManage
 	private static int cacheSize = 10 * 1024 * 1024; // 10 MiB
 	private static Cache cache = new Cache(httpCacheDirectory, cacheSize);
 	private static OkHttpClient client;
-	private static OkHttpClient okclient;
-	private final Object zhihuMonitor = new Object();
+	private static OkHttpClient sOkHttpClient;
+	private final Object mObject = new Object();
 	private JuHeApi mJuHeApi;
 	private GankApi ganK;
 
-	public static ApiManage getInstence()
+	public static ApiManage getInstance()
 	{
 		if (apiManage == null)
 		{
@@ -76,7 +76,7 @@ public class ApiManage
 						//设置 Debug Log 模式
 						builder.addInterceptor(loggingInterceptor);
 					}
-					okclient = builder.build();
+					sOkHttpClient = builder.build();
 					client = builder
 							.addNetworkInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
 							.addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
@@ -92,14 +92,14 @@ public class ApiManage
 	{
 		if (mJuHeApi == null)
 		{
-			synchronized (zhihuMonitor)
+			synchronized (mObject)
 			{
 				if (mJuHeApi == null)
 				{
 					mJuHeApi = new Retrofit.Builder()
 							.baseUrl("http://c.m.163.com")
 							.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-							.client(okclient)
+							.client(sOkHttpClient)
 							.addConverterFactory(GsonConverterFactory.create())
 							.build().create(JuHeApi.class);
 				}
@@ -112,7 +112,7 @@ public class ApiManage
 	{
 		if (ganK == null)
 		{
-			synchronized (zhihuMonitor)
+			synchronized (mObject)
 			{
 				if (ganK == null)
 				{

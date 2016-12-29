@@ -23,10 +23,10 @@ import butterknife.ButterKnife;
 
 public class GankListFragment extends MvpFragment<GankListPresenter> implements GankListView
 {
-	@BindView(R.id.recycle_meizi)
+	@BindView(R.id.recycle_home)
 	RecyclerView mRecycleHome;
-	@BindView(R.id.prograss)
-	ProgressBar mPrograss;
+	@BindView(R.id.progress)
+	ProgressBar mProgressBar;
 	private GankListAdapter mHomeAdapter;
 	private int page = 1;
 	private String mGankType;
@@ -99,12 +99,12 @@ public class GankListFragment extends MvpFragment<GankListPresenter> implements 
 	@Override
 	public void showLoading()
 	{
-		mPrograss.setVisibility(View.VISIBLE);
+		mProgressBar.setVisibility(View.VISIBLE);
 	}
 
 	@Override
 	public void hideLoading()
 	{
-		mPrograss.setVisibility(View.GONE);
+		mProgressBar.setVisibility(View.GONE);
 	}
 }

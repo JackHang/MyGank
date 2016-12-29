@@ -8,7 +8,7 @@ import java.io.File;
 
 public class MyApplication extends Application {
     public static Context sContext;
-    public static File cacheDorectory;
+    public static File cacheDirectory;
     public static File picDirectory;
 
     @Override
@@ -24,10 +24,10 @@ public class MyApplication extends Application {
     private void initDir() {
         // 缓存路径
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            cacheDorectory = sContext.getExternalCacheDir();
+            cacheDirectory = sContext.getExternalCacheDir();
             picDirectory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "gank_pics");
         } else {
-            cacheDorectory = sContext.getCacheDir();
+            cacheDirectory = sContext.getCacheDir();
             picDirectory = new File(sContext.getFilesDir(), "gank_pics");
         }
         mkDir(picDirectory);

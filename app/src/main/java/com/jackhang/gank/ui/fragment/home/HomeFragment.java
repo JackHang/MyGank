@@ -2,7 +2,6 @@ package com.jackhang.gank.ui.fragment.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,10 +23,10 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
 {
-	@BindView(R.id.recycle_meizi)
+	@BindView(R.id.recycle_home)
 	RecyclerView mRecycleHome;
-	@BindView(R.id.prograss)
-	ProgressBar mPrograss;
+	@BindView(R.id.progress)
+	ProgressBar mProgressBar;
 	private HomeAdapter mHomeAdapter;
 	private int page = 1;
 
@@ -88,12 +87,12 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
 	@Override
 	public void showLoading()
 	{
-		mPrograss.setVisibility(View.VISIBLE);
+		mProgressBar.setVisibility(View.VISIBLE);
 	}
 
 	@Override
 	public void hideLoading()
 	{
-		mPrograss.setVisibility(View.GONE);
+		mProgressBar.setVisibility(View.GONE);
 	}
 }

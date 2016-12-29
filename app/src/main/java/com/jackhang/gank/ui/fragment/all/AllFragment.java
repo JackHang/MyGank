@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jackhang.gank.R;
-import com.jackhang.gank.entity.GankData;
 import com.jackhang.gank.mvp.MvpFragment;
 import com.jackhang.gank.ui.fragment.all.list.BaseFragmentPageAdapter;
 
@@ -23,7 +22,7 @@ import butterknife.ButterKnife;
 public class AllFragment extends MvpFragment<AllPresenter> implements AllViews
 {
 	@BindView(R.id.tl_tablayout)
-	TabLayout mTablayout;
+	TabLayout mTabLayout;
 	@BindView(R.id.vp_viewpager)
 	ViewPager mViewpager;
 	private BaseFragmentPageAdapter mAdapter;
@@ -41,7 +40,7 @@ public class AllFragment extends MvpFragment<AllPresenter> implements AllViews
 			ButterKnife.bind(this, mRootView);
 
 			// 设置tablayout的初始化，和其他的indicate很相似
-			mTablayout.setupWithViewPager(mViewpager);
+			mTabLayout.setupWithViewPager(mViewpager);
 			mAdapter = new BaseFragmentPageAdapter(getChildFragmentManager());
 			mViewpager.setAdapter(mAdapter);
 		}

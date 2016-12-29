@@ -18,7 +18,7 @@ public class BasePresenter<V> {
 
 	public void attachView(V mvpView) {
 		this.mvpView = mvpView;
-		apiStores = ApiManage.getInstence();
+		apiStores = ApiManage.getInstance();
 	}
 
 
@@ -27,7 +27,7 @@ public class BasePresenter<V> {
 		onUnsubscribe();
 	}
 
-	//RXjava取消注册，以避免内存泄露
+	//RxJava取消注册，以避免内存泄露
 	public void onUnsubscribe() {
 		if (mCompositeSubscription != null && mCompositeSubscription.hasSubscriptions()) {
 			mCompositeSubscription.unsubscribe();

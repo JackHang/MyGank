@@ -102,8 +102,8 @@ public class BaseActivity extends AppCompatActivity
 		if (toolbar != null)
 		{
 			setSupportActionBar(toolbar);
-			TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-			toolbaTitle.setText(title);
+			TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+			toolbarTitle.setText(title);
 		}
 		ActionBar actionBar = getSupportActionBar();
 		if (actionBar != null)
