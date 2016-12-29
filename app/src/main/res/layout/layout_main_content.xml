@@ -24,7 +24,7 @@
         app:cardElevation="5dp"
         >
 
-        <android.support.v4.app.FragmentTabHost
+        <com.jackhang.gank.view.MyFragmentTabHost
             android:id="@+id/tabhost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

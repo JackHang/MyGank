@@ -1,7 +1,5 @@
 package com.jackhang.gank.ui;
 
-import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -15,6 +13,7 @@ import com.jackhang.gank.enums.KeyValue;
 import com.jackhang.gank.enums.TabMenus;
 import com.jackhang.gank.util.SnackBarUtil;
 import com.jackhang.gank.util.UIUtils;
+import com.jackhang.gank.view.MyFragmentTabHost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ public class MainActivity extends BaseActivity
 {
 	public int tabIndex = 0;
 	@BindView(R.id.tabhost)
-	FragmentTabHost mTabHost;
+	MyFragmentTabHost mTabHost;
 
 	// 保存更新通知的小圆点
 	private List<ImageView> newsNotifyViews = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.jackhang.gank.ui.fragment.home;
+package com.jackhang.gank.ui.fragment.all.list;
 
 import com.jackhang.gank.entity.GankData;
 import com.jackhang.gank.mvp.BasePresenter;
@@ -8,17 +8,17 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class HomePresenter extends BasePresenter<HomeView>
+public class GankListPresenter extends BasePresenter<GankListView>
 {
-	HomePresenter(HomeView view)
+	GankListPresenter(GankListView view)
 	{
 		attachView(view);
 	}
 
-	public void loadData(int page)
+	public void loadData(String GankType, int page)
 	{
 		apiStores.getGankService()
-				.getHomeData(GankValue.All, GankValue.pageSize, page)
+				.getHomeData(GankType, GankValue.pageSize, page)
 				.subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(new Subscriber<GankData>()

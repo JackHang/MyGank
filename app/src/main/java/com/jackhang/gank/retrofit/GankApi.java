@@ -11,6 +11,6 @@ import rx.Observable;
  */
 public interface GankApi
 {
-	@GET("/api/data/all/20/{page}")
-	Observable<GankData> getHomeData(@Path("page") int page);
+	@GET("/api/data/{type}/{pageSize}/{page}")
+	Observable<GankData> getHomeData(@Path("type") String type, @Path("pageSize") int pageSize, @Path("page") int page);
 }
