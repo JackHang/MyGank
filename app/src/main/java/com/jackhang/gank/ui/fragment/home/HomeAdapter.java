@@ -8,7 +8,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jackhang.gank.R;
 import com.jackhang.gank.entity.GankData;
-import com.jackhang.gank.util.UIUtils;
 
 import java.util.List;
 

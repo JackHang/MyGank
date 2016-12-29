@@ -1,6 +1,5 @@
 package com.jackhang.gank.ui.fragment.all;
 
-import com.jackhang.gank.entity.GankData;
 import com.jackhang.gank.mvp.BaseView;
 
 /**

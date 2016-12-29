@@ -54,9 +54,8 @@ public class MainActivity extends BaseActivity
 
 		TabMenus[] tabManures = TabMenus.values();
 
-		for (int i = 0; i < tabManures.length; i++) {
-			TabMenus tabMenuse = tabManures[i];
-
+		for (TabMenus tabMenuse : tabManures)
+		{
 			TabHost.TabSpec tabSpec = mTabHost.newTabSpec(tabMenuse.getTag());
 
 			tabSpec.setIndicator(getIndicator(tabMenuse));
@@ -66,9 +65,11 @@ public class MainActivity extends BaseActivity
 
 			Bundle bundle = null;
 
-			if (arguments != null && arguments.length > 0) {
+			if (arguments != null && arguments.length > 0)
+			{
 				bundle = new Bundle();
-				for (KeyValue argument : arguments) {
+				for (KeyValue argument : arguments)
+				{
 					bundle.putString(argument.key, argument.value);
 				}
 			}
