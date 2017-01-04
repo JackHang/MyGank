@@ -1,6 +1,7 @@
 package com.jackhang.gank.ui;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -78,6 +79,10 @@ public class MainActivity extends BaseActivity
 		mTabHost.setCurrentTab(tabIndex);
 	}
 
+	@Override
+	public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState)
+	{
+	}
 
 	/**
 	 * 获取指示器

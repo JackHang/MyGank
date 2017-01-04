@@ -16,6 +16,8 @@
         <item name="tabIndicatorColor">@color/white</item>
         <item name="imageBackgroundTint">#00000000</item>
         <item name="android:windowIsTranslucent">false</item><!--X5设置防止视频上屏透明-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

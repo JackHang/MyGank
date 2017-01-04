@@ -12,6 +12,4 @@ public class AllPresenter extends BasePresenter<AllViews>
 	{
 		attachView(views);
 	}
-
-
 }

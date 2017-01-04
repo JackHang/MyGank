@@ -59,20 +59,23 @@ public class GankListAdapter extends BaseQuickAdapter<GankData.GankBean, BaseVie
 		line.setBackgroundResource(typeId);
 
 		ImageView img = baseViewHolder.getView(R.id.iv_picture);
-		if (gankBean.images != null && !gankBean.images.isEmpty())
-		{
-			Glide.with(mContext).load(gankBean.images.get(0) + "?imageView2/0/w/500").asBitmap().into(img);
-			img.setVisibility(View.VISIBLE);
-		}
-		else
-		{
-			img.setVisibility(View.GONE);
-		}
 
 		if(gankBean.type.equals("福利"))
 		{
 			Glide.with(mContext).load(gankBean.url).asBitmap().into(img);
 			img.setVisibility(View.VISIBLE);
+		}
+		else
+		{
+			if (gankBean.images != null && !gankBean.images.isEmpty())
+			{
+				Glide.with(mContext).load(gankBean.images.get(0) + "?imageView2/0/w/500").asBitmap().into(img);
+				img.setVisibility(View.VISIBLE);
+			}
+			else
+			{
+				img.setVisibility(View.GONE);
+			}
 		}
 	}
 }

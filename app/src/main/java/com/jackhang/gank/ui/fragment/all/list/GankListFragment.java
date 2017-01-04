@@ -1,5 +1,6 @@
 package com.jackhang.gank.ui.fragment.all.list;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.jackhang.gank.R;
 import com.jackhang.gank.entity.GankData;
 import com.jackhang.gank.mvp.MvpFragment;
+import com.jackhang.gank.ui.ActivityWeb;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,6 +84,45 @@ public class GankListFragment extends MvpFragment<GankListPresenter> implements 
 			}
 		});
 		mRecycleHome.setLayoutManager(new LinearLayoutManager(getContext()));
+		mRecycleHome.addOnItemTouchListener(new SimpleClickListener()
+		{
+			@Override
+			public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i)
+			{
+				GankData.GankBean bean = (GankData.GankBean) baseQuickAdapter.getData().get(i);
+				if (bean.type.equals("福利"))
+				{
+
+				}
+				else
+				{
+					Bundle bundle = new Bundle();
+					bundle.putString("url", bean.url);
+					Intent it = new Intent();
+					it.setClass(mActivity, ActivityWeb.class);
+					it.putExtras(bundle);
+					startActivity(it);
+				}
+			}
+
+			@Override
+			public void onItemLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i)
+			{
+
+			}
+
+			@Override
+			public void onItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i)
+			{
+
+			}
+
+			@Override
+			public void onItemChildLongClick(BaseQuickAdapter baseQuickAdapter, View view, int i)
+			{
+
+			}
+		});
 		mRecycleHome.setAdapter(mHomeAdapter);
 	}
 

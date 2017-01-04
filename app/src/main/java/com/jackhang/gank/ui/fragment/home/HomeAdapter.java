@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jackhang.gank.R;
 import com.jackhang.gank.entity.GankData;
+import com.jackhang.gank.util.GlideUtil;
 
 import java.util.List;
 
@@ -59,20 +60,22 @@ public class HomeAdapter extends BaseQuickAdapter<GankData.GankBean, BaseViewHol
 		line.setBackgroundResource(typeId);
 
 		ImageView img = baseViewHolder.getView(R.id.iv_picture);
-		if (gankBean.images != null && !gankBean.images.isEmpty())
+		if (gankBean.type.equals("福利"))
 		{
-			Glide.with(mContext).load(gankBean.images.get(0) + "?imageView2/0/w/500").asBitmap().into(img);
+			Glide.with(mContext).load(gankBean.url).asBitmap().into(img);
 			img.setVisibility(View.VISIBLE);
 		}
 		else
 		{
-			img.setVisibility(View.GONE);
-		}
-
-		if(gankBean.type.equals("福利"))
-		{
-			Glide.with(mContext).load(gankBean.url).asBitmap().into(img);
-			img.setVisibility(View.VISIBLE);
+			if (gankBean.images != null && !gankBean.images.isEmpty())
+			{
+				GlideUtil.loadStaticPic(img, gankBean.images.get(0));
+				img.setVisibility(View.VISIBLE);
+			}
+			else
+			{
+				img.setVisibility(View.GONE);
+			}
 		}
 	}
 }
