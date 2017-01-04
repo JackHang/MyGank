@@ -1,12 +1,14 @@
 package com.jackhang.gank.ui;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.jackhang.gank.BaseActivity;
 import com.jackhang.gank.R;
@@ -19,8 +21,8 @@ import butterknife.BindView;
 
 public class ActivityWeb extends BaseActivity
 {
-	@BindView(R.id.refresh)
-	SwipeRefreshLayout mRefreshLayout;
+	//	@BindView(R.id.refresh)
+//	SwipeRefreshLayout mRefreshLayout;
 	@BindView(R.id.webview)
 	WebView mWebView;
 
@@ -34,7 +36,6 @@ public class ActivityWeb extends BaseActivity
 
 		String url = getIntent().getExtras().getString("url", "http://www.baidu.com");
 		mWebView.loadUrl(url);
-		initToolBar(mWebView.getTitle());
 	}
 
 	@SuppressLint("SetJavaScriptEnabled")
@@ -61,5 +62,23 @@ public class ActivityWeb extends BaseActivity
 		webSettings.setBuiltInZoomControls(false);
 		// 设置可以访问文件
 		webSettings.setAllowFileAccess(true);
+
+		mWebView.setWebViewClient(new WebViewClient()
+		{
+			@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+			@Override
+			public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
+			{
+				view.loadUrl(String.valueOf(request.getUrl()));
+				return super.shouldOverrideUrlLoading(view, request);
+			}
+
+			@Override
+			public boolean shouldOverrideUrlLoading(WebView view, String url)
+			{
+				view.loadUrl(url);
+				return super.shouldOverrideUrlLoading(view, url);
+			}
+		});
 	}
 }

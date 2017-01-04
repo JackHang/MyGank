@@ -15,6 +15,7 @@ import com.chad.library.adapter.base.listener.SimpleClickListener;
 import com.jackhang.gank.R;
 import com.jackhang.gank.entity.GankData;
 import com.jackhang.gank.mvp.MvpFragment;
+import com.jackhang.gank.ui.ActivityPhoto;
 import com.jackhang.gank.ui.ActivityWeb;
 
 import butterknife.BindView;
@@ -92,7 +93,10 @@ public class GankListFragment extends MvpFragment<GankListPresenter> implements 
 				GankData.GankBean bean = (GankData.GankBean) baseQuickAdapter.getData().get(i);
 				if (bean.type.equals("福利"))
 				{
-
+					Intent it = new Intent();
+					it.setClass(mActivity, ActivityPhoto.class);
+					it.putExtra("photo", bean.url);
+					startActivity(it);
 				}
 				else
 				{

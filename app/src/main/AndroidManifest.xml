@@ -26,6 +26,10 @@
         <activity
             android:name=".ui.ActivityWeb"
             android:label="@string/app_name"/>
+
+        <activity
+            android:name=".ui.ActivityPhoto"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>

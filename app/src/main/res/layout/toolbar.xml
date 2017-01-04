@@ -14,5 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@android:color/white"
+        android:text="@string/app_name"
+        android:lines="1"
+        android:maxEms="10"
         android:textStyle="bold"/>
 </android.support.v7.widget.Toolbar>
