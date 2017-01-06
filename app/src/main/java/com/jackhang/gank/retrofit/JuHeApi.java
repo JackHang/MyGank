@@ -1,6 +1,8 @@
 package com.jackhang.gank.retrofit;
 
 
+import com.jackhang.gank.entity.FunEntity;
+
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -23,8 +25,8 @@ public interface JuHeApi
 //	@FormUrlEncoded
 //	@POST("http://v.juhe.cn/toutiao/index")
 //	Observable<NewsModel> loadNewsData(@Field("key") String key, @Field("type") String type);
-//
-//	@FormUrlEncoded
-//	@POST("http://japi.juhe.cn/joke/content/text.from")
-//	Observable<FunsModel> loadNewFunsData(@Field("key") String key, @Field("page") int page, @Field("pagesize") int pagesize);
+
+	@FormUrlEncoded
+	@POST("http://japi.juhe.cn/joke/content/text.from")
+	Observable<FunEntity> loadNewFunsData(@Field("key") String key, @Field("page") int page, @Field("pagesize") int pagesize);
 }

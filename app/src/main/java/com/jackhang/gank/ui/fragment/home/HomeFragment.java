@@ -44,9 +44,7 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
 	{
-		View view = inflater.inflate(R.layout.fragment_home, container, false);
-		ButterKnife.bind(view);
-		return view;
+		return inflater.inflate(R.layout.fragment_home, container, false);
 	}
 
 	@Override
