@@ -88,12 +88,12 @@ public class FunFragment extends MvpFragment<FunPresenter> implements FunView
 	@Override
 	public void showLoading()
 	{
-
+		mProgress.setVisibility(View.VISIBLE);
 	}
 
 	@Override
 	public void hideLoading()
 	{
-
+		mProgress.setVisibility(View.GONE);
 	}
 }
